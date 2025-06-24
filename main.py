@@ -1,8 +1,10 @@
 from secret import main
 from reverse import reverse_binary
+from create import keygen
 
 
 def program():
+    keygen()
     message = input("↓↓↓Text your secret message↓↓↓\n")
     main(message)
 
