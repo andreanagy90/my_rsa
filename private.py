@@ -4,6 +4,7 @@ def load_private_key():
         d = int(lines[-1].strip())
 
         n = int(lines[-2].strip())
+    print("private key", n,d)
     return n, d
 
 

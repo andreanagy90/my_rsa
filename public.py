@@ -4,7 +4,8 @@ def load_public_key():
         e = int(lines[-1].strip())
 
         n = int(lines[-2].strip())
-    return e, n
+    print("public key" , n, e)
+    return n, e
 
 
 

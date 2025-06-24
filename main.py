@@ -7,8 +7,14 @@ def program():
     main(message)
 
     decrypted_text = reverse_binary("secret_message_file.txt")
+
+    with open("secret_message_file.txt", "r") as f:
+        secret_message = f.read()
+
+    print(f"your secret message:\n {secret_message}")
+
     
-    print(f" Your message is: {decrypted_text}")
+    print(f" Your decrypted message is: {decrypted_text}")
 
 program()
 

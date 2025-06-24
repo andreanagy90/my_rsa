@@ -6,6 +6,7 @@ def save_binary(text, filename="binary.txt"):
     binary = "".join(binary_list)
     with open ("binary.txt", "w") as f:
         f.write(binary)
+    print (f"Your saved binary: {binary}")
     return binary
 
 
@@ -20,29 +21,27 @@ def secret_message(binary_file ="binary.txt"):
     k_bit = k * 8
 
     padding_len = (k_bit - len(binary) % k_bit) % k_bit  # 0-tól k-1-ig
-    binary = binary + "0" * padding_len
+    binary += "0" * padding_len
 
     blocks = [binary[i:i+k_bit] for i in range(0, len(binary), k_bit)]
 
     c_blocks = []
-    block_lengths = []
 
     with open("secret_message_file.txt", "w") as out, open("block_lengths.txt","w") as bl_out:
         for block in blocks:
             m_block = int(block, 2)
-            block_lengths.append(len(block))
             c_block = pow(m_block, e, n)
             c_blocks.append(str(c_block))
             out.write(str(c_block) + "\n")
 
         bl_out.write(f"{k_bit} {padding_len}\n")
-        
-        return c_blocks
+    return c_blocks
 
 
 def main(text):
     save_binary(text, filename= "binary.txt")
 
     c_bloks = secret_message("binary.txt")
+
 
     return c_bloks
