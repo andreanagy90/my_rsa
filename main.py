@@ -4,8 +4,8 @@ from create import keygen
 
 
 def program():
-    keygen()
     message = input("↓↓↓Text your secret message↓↓↓\n")
+    keygen()
     main(message)
 
     decrypted_text = reverse_binary("secret_message_file.txt")

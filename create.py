@@ -1,20 +1,15 @@
-import random
-from p_numbers import primes_1000, primes_3000, primes_5000
 import math
+from p_numbers import generate_prime
+
 def keygen():
-    number_list = [primes_1000, primes_3000, primes_5000]
 
 
 
-    random_list = random.choice(number_list)
-
-    p = random.choice(random_list)
-    q = random.choice(random_list)
-
-    while q==p:
-        q = random.choice(random_list)
-
-
+    while True:
+        p = generate_prime()
+        q = generate_prime()
+        if q !=p and p > 1000 and q > 1000:
+            break
     n = p * q
     z = (p -1) * (q-1)
 
@@ -24,9 +19,8 @@ def keygen():
         e = 3
         while math.gcd(e, z) != 1:
             e += 2   
-    d = 1
-    while (e * d) % z != 1:
-        d += 1
+            
+    d = pow(e,-1,z)
 
 
 
@@ -35,12 +29,4 @@ def keygen():
 
     with open ("private_key.txt","w") as priv:
         priv.write(f"{n}\n{d}")
-
-
-
-
-    
-
-    
-
 
