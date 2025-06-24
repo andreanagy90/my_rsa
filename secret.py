@@ -2,12 +2,21 @@ from public import load_public_key
 
 
 def save_binary(text, filename="binary.txt"):
-    binary_list= [format(ord(char),'08b') for char in text]
+    bytes_data = text.encode('utf-8')
+    binary_list= [format(byte,'08b') for byte in bytes_data]
     binary = "".join(binary_list)
+    
     with open ("binary.txt", "w") as f:
         f.write(binary)
+
+    if len(binary) % 8 != 0:
+        padding_len = 8 - (len(binary) % 8)
+        binary += '0' * padding_len
+    else:
+        padding_len = 0
+
     print (f"Your saved binary: {binary}")
-    return binary
+    return binary, padding_len
 
 
 def secret_message(binary_file ="binary.txt"):
