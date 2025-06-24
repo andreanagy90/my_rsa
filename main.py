@@ -9,7 +9,7 @@ def program():
     decrypted_text = reverse_binary("secret_message_file.txt")
 
     with open("secret_message_file.txt", "r") as f:
-        secret_message = f.read()
+        secret_message = f.read().strip()
 
     print(f"your secret message:\n {secret_message}")
 
