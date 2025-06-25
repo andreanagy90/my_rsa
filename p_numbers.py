@@ -1,5 +1,7 @@
 import random
 
+
+# Check the number is prime
 def is_prime(num):
     if num <= 1:
         return False
@@ -8,6 +10,7 @@ def is_prime(num):
             return False
     return True
 
+# Generate random prime number (to 20000)
 def generate_prime(limit= 20000):
     attempts = 0
     while True:

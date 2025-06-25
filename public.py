@@ -1,3 +1,4 @@
+# Load public key (n, e)
 def load_public_key():
     with open("public_key.txt", "r") as f:
         lines = f.readlines()

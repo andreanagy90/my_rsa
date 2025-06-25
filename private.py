@@ -1,3 +1,4 @@
+# Load private key (n, d)
 def load_private_key():
     with open("private_key.txt", "r") as f:
         lines = f.readlines()

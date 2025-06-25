@@ -2,11 +2,12 @@ from secret import main
 from reverse import reverse_binary
 from create import keygen
 
+# Program 
 
 def program():
-    message = input("↓↓↓Text your secret message↓↓↓\n")
-    keygen()
-    main(message)
+    message = input("↓↓↓Text your secret message↓↓↓\n") # Your message
+    keygen()                                            # Generate keys
+    main(message)                                       
 
     decrypted_text = reverse_binary("secret_message_file.txt")
 

@@ -1,6 +1,8 @@
 import math
 from p_numbers import generate_prime
 
+# generate public and private keys
+
 def keygen():
 
 
